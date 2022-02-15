@@ -7,12 +7,12 @@ module.exports = {
   "lang": "zh-cn",
   outDir: '../docs',
   base:'/blog/',
-  title: '唐宇',
+  title: '徐翔',
   description: '让全栈编程更容易~',
-  head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/tupian.jpg' }]],
+  head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/123.png' }]],
   themeConfig: {
-    repo: 'tangyu01/blog',
-    logo: '/tupian.jpg',
+    repo: 'lovezbj/blog',
+    logo: '/123.png',
     docsDir: 'docs',
     docsBranch: 'main',
     nav: [
