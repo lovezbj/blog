@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/blog/assets/style.12993c18.css">
     <link rel="modulepreload" href="/blog/assets/Home.cab668a2.js">
     <link rel="modulepreload" href="/blog/assets/app.ca790fb3.js">
-    <link rel="modulepreload" href="/blog/assets/tech_di_react.md.0857d088.lean.js">
+    <link rel="modulepreload" href="/blog/assets/tech_di_react.md.0b425daa.lean.js">
     
     <meta name="twitter:title" content="TS实现可在React中使用的DI | 徐翔">
   <meta property="og:title" content="TS实现可在React中使用的DI | 徐翔">
@@ -145,7 +145,7 @@ function InjectComponent() {
 }
 
 </code></pre></div><p>以上示例中全局只有一个 injection，然而有时在不同场景（命名空间）下我们希望有不同的 provider 实例，甚至还有可能希望 provider 也有一个生命周期跟某个scope绑定起来（在前端项目中，例如每个页面算一个 scope ?)，离开这个 scope 时 执行 provider.dispose() 之类的销毁逻辑。</p><p>Hierarchical injector，分层的注入器，使用的是 Angular 里的术语，简单地说是 injector 是可以有多层的，每一层可以选择性地覆盖掉部分之前层的实现。一个很实用的场景就是在组件树中从某一个节点开始开始替换掉部分实现，实际查找的时候有一个 lookup 的过程，很灵活。</p><h2 id="react-体系中还需要这套东西么？" tabindex="-1">React 体系中还需要这套东西么？ <a class="header-anchor" href="#react-体系中还需要这套东西么？" aria-hidden="true">#</a></h2><h3 id="有-context-呀" tabindex="-1">有 Context 呀 <a class="header-anchor" href="#有-context-呀" aria-hidden="true">#</a></h3><p>React 中有一种概念是 Context，算是一种简单的 DI 实现，能够比较好地满足在组件树中共享状态或服务的需求。不过当有多种 Context 的时候，Context.Provider 需要嵌套写，代码观感很差。</p><p>而且 Context 会深入参与 React 的 Reconciliation 过程，因此一般来说使用 Context 共享的都是一些像是 Theme/I18n 之类的对于视图有直接重要影响的数据和服务。其他的各种形式的服务都扔进 Context 的话，可能会导致处理复杂化，影响性能。</p><h3 id="有-redux-呀" tabindex="-1">有 Redux 呀 <a class="header-anchor" href="#有-redux-呀" aria-hidden="true">#</a></h3><p>A Predictable State Container for JS Apps，从标语上来看，redux 是一个状态容器，react-redux 体现的是 UI 编程中的关注点分离，将 View 仅作为消费 State 的展示层，同时对于 State 的操作和更改都有迹可循。</p><p>但一般在复杂的前端业务系统中，更多的是将 Redux 作为 View Data 的存储。而怎么与后端交互、后端的数据模型如何转换成视图层模型等等我们称为 ==“业务逻辑”== 的代码，最好还是在一个单独的抽象层中，与视图层的选型隔离开来。而依赖注入，在业务逻辑的复用中，可以有一席之地。</p></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><!----></div></footer><!----><!--[--><!--]--></div></main></div><!----><!--]--></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"about_index.md\":\"0658ca1b\",\"index.md\":\"472a25b1\",\"manage_index.md\":\"590bf0cc\",\"manage_sum.md\":\"7afeb2f2\",\"tech_di_about.md\":\"61323469\",\"tech_di_angular.md\":\"ccf88ed5\",\"tech_di_hooks.md\":\"c5a2b160\",\"tech_di_inversify.md\":\"1640b297\",\"tech_di_react.md\":\"0857d088\",\"tech_edge.md\":\"e4b2abca\",\"tech_index.md\":\"ee0c99b3\",\"tech_iot.md\":\"1dc3c055\",\"tech_low.md\":\"d8e29af4\"}")</script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"about_index.md\":\"eac2af55\",\"index.md\":\"a403557c\",\"manage_index.md\":\"590bf0cc\",\"manage_sum.md\":\"7afeb2f2\",\"tech_di_about.md\":\"fc9e440c\",\"tech_di_angular.md\":\"4e1834ec\",\"tech_di_hooks.md\":\"cffa2442\",\"tech_di_inversify.md\":\"fd3b6c44\",\"tech_di_react.md\":\"0b425daa\",\"tech_edge.md\":\"a050f358\",\"tech_index.md\":\"de23f4d8\",\"tech_iot.md\":\"ad2a0a27\",\"tech_low.md\":\"5dcf0671\"}")</script>
     <script type="module" async src="/blog/assets/app.ca790fb3.js"></script>
     
   </body>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/blog/assets/style.12993c18.css">
     <link rel="modulepreload" href="/blog/assets/Home.cab668a2.js">
     <link rel="modulepreload" href="/blog/assets/app.ca790fb3.js">
-    <link rel="modulepreload" href="/blog/assets/tech_di_about.md.61323469.lean.js">
+    <link rel="modulepreload" href="/blog/assets/tech_di_about.md.fc9e440c.lean.js">
     
     <meta name="twitter:title" content="深入浅出依赖注入 | 徐翔">
   <meta property="og:title" content="深入浅出依赖注入 | 徐翔">
@@ -166,7 +166,7 @@ console.log(people);
 //   clothes: Clothes { cloth: Cloth { name: &#39;麻布&#39; }, clotheName: &#39;耐克&#39; }
 // }
 </code></pre></div><h2 id="依赖注入的实现方式：" tabindex="-1">依赖注入的实现方式： <a class="header-anchor" href="#依赖注入的实现方式：" aria-hidden="true">#</a></h2><ul><li>基于接口。实现特定接口以供外部容器注入所依赖类型的对象。</li><li>基于 set 方法。实现特定属性的public set方法，来让外部容器调用传入所依赖类型的对象。</li><li>基于构造函数。实现特定参数的构造函数，在新建对象时传入所依赖类型的对象。</li><li>基于注解。基于Java的注解功能，在私有变量前加“@Autowired”等注解，不需要显式的定义以上三种代码，便可以让外部容器传入对应的对象。</li></ul><p>使用构造器注入的好处：</p><ul><li>保证依赖不可变（final关键字）</li><li>保证依赖不为空（省去了我们对其检查）</li><li>保证返回客户端（调用）的代码的时候是完全初始化的状态</li><li>避免了循环依赖</li><li>避免了和容器的高度耦合，提升了代码的可复用性</li></ul><p>构造器注入适用于强制对象注入；Setter 注入适合于可选对象注入；并且构造器注入在构造过程中可以保证线程的安全</p><h2 id="依赖反转原则" tabindex="-1">依赖反转原则 <a class="header-anchor" href="#依赖反转原则" aria-hidden="true">#</a></h2><p>依赖反转原则的英文翻译是 Dependency Inversion Principle，缩写为 DIP。中文翻译有时候也叫依赖倒置原则。</p><p>主要的概念是：高层模块（high-level modules）不要依赖低层模块（low-level）。高层模块和低层模块应该通过抽象（abstractions）来互相依赖。除此之外，抽象（abstractions）不要依赖具体实现细节（details），具体实现细节 （details）依赖抽象（abstractions）。</p><p>所谓高层模块和低层模块的划分，简单来说就是，在调用链上，调用者属于高层，被调用者属于低层。在平时的业务代码开发中，高层模块依赖底层模块是没有任何问题的。实际上，这条原则主要还是用来指导框架层面的设计。</p><p>Tomcat 是运行 Java Web 应用程序的容器。我们编写的 Web 应用程序代码只需要部署在Tomcat 容器下，便可以被 Tomcat 容器调用执行。按照之前的划分原则，Tomcat 就是高层模块，我们编写的 Web 应用程序代码就是低层模块。</p><p>Tomcat 和应用程序代码之间并没有直接的依赖关系，两者都依赖同一个“抽象”，也就是 Sevlet 规范。Servlet 规范不依赖具体的 Tomcat 容器和应用程序的实现细节，而 Tomcat 容器和应用程序依赖 Servlet规范。</p><h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-hidden="true">#</a></h2><p>依赖注入就是通过DI框架（外部源）将程序中服务类所需的依赖项进行提取并实例化，最后自动注入到指定服务类中的一种设计模式。其无需我们在服务类中再手动创建实例，规避了类与类之间的高度耦合的情况。</p></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><!----></div></footer><!----><!--[--><!--]--></div></main></div><!----><!--]--></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"about_index.md\":\"0658ca1b\",\"index.md\":\"472a25b1\",\"manage_index.md\":\"590bf0cc\",\"manage_sum.md\":\"7afeb2f2\",\"tech_di_about.md\":\"61323469\",\"tech_di_angular.md\":\"ccf88ed5\",\"tech_di_hooks.md\":\"c5a2b160\",\"tech_di_inversify.md\":\"1640b297\",\"tech_di_react.md\":\"0857d088\",\"tech_edge.md\":\"e4b2abca\",\"tech_index.md\":\"ee0c99b3\",\"tech_iot.md\":\"1dc3c055\",\"tech_low.md\":\"d8e29af4\"}")</script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"about_index.md\":\"eac2af55\",\"index.md\":\"a403557c\",\"manage_index.md\":\"590bf0cc\",\"manage_sum.md\":\"7afeb2f2\",\"tech_di_about.md\":\"fc9e440c\",\"tech_di_angular.md\":\"4e1834ec\",\"tech_di_hooks.md\":\"cffa2442\",\"tech_di_inversify.md\":\"fd3b6c44\",\"tech_di_react.md\":\"0b425daa\",\"tech_edge.md\":\"a050f358\",\"tech_index.md\":\"de23f4d8\",\"tech_iot.md\":\"ad2a0a27\",\"tech_low.md\":\"5dcf0671\"}")</script>
     <script type="module" async src="/blog/assets/app.ca790fb3.js"></script>
     
   </body>
